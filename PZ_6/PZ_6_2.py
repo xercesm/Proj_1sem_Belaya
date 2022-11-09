@@ -10,6 +10,7 @@ print('n = ', n)
 a = [random.randrange(1,11) for i in range(n)]
 print(a)
 
+
 c = 0
 for i in range(len(a)-1,0,-1):
     if a[i] > a[i-1]:
