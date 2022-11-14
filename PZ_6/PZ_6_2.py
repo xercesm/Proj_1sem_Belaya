@@ -2,19 +2,18 @@
 #левого соседа, и количество таких элементов. Найденные номера выводить в
 #порядке их убывания.
 
-import random
+import random #имортируется библиотека рандом
 
-n = random.randrange(2,11)
-print('n = ', n)
+n = random.randrange(2,11) # генирируется рандомное число от 2 до 11
+print('n = ', n) # вывод числа n
 
-a = [random.randrange(1,11) for i in range(n)]
-print(a)
+a = [random.randrange(1,11) for i in range(n)] # список в котором генерируются значения от 1 до 11, всего чисел n
+print(a) # вывод списка
 
 
-c = 0
-for i in range(len(a)-1,0,-1):
-    if a[i] > a[i-1]:
+c = 0 # счетчик
+for i in range(len(a)-1,0,-1): # цикл который начинается от len(a)-1 до 0 с шагом -1
+    if a[i] > a[i-1]: # условие что a по индексу i больше a[i-1]
         c += 1
-        print(i,end='; ')
-print()
-print('Count:',c)
+        print(i,end='; ') # вывод числа + ;
+print('Count:',c) # Вывод последнего знач
