@@ -3,7 +3,8 @@
 import random #импортируем библиотеку рандом
 
 n = random.randrange(32, 126)
-print('N=',n,': Символ:', chr(n))
+print('N=',n,': Символ: ', chr(n))
+
 
 
 
