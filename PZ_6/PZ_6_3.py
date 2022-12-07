@@ -2,19 +2,22 @@
 #минимальным и максимальным элементами (не включая минимальный и
 #максимальный элементы)
 
-import random #импорт библиотеки рандом
-number = int(input("Введите число: ")) #ввод пользователем числа
-n = [random.randint(1, number) for i in range(number)] #в пустом списке генерируется значение от 1 до number
-print(n)
-n_1 = sorted(n) #сортировка списка n
-i = 1 #счетчик
-while i <= len(n_1): #цикл, который проходит каждое значение в списке от 1 до -2
-    if i == len(n_1)-1: #если значения i равняется самому себе - остановка цикла
-        break
-    elif i > len(n_1): # или же i больше длины списка n_1 - остановка цикла
-        break
-    n_1[i] = 0
-    i += 1 # прибавление к счетчику 1
-
-'''Вывод'''
-print(n_1)
+import random
+N = int(input('Введите число N: '))
+a = [random.randint(1, N) for i in range(N)]
+print(a)
+max_val = max(a)
+max_idx = a.index(max_val)
+min_val = min(a)
+min_idx = a.index(min_val)
+if min_idx < max_idx :
+    start_idx = min_idx
+    end_idx = max_idx
+else :
+    start_idx = max_idx
+    end_idx = min_idx
+i = start_idx + 1
+while i < end_idx :
+    a[i] = 0
+    i += 1
+print(a)
