@@ -7,9 +7,16 @@
 # Максимальный элемент:
 # Произведение элементов меньших 0 в первой половине:
 
+#Создание первого файла.
+l = [random.randint(-20, 20) for i in range(random.randint(5, 12))]
+pol_l = [i for i in l if i > 0]
+otr_l = [i for i in l if i < 0]
+f1 = open("text1.txt", 'w', encoding='UTF-8')
+f1.write(f"Положительные числа: {pol_l}\n")
+f1.write(f"Отрицательные числа: {otr_l}\n")
+f1.close()
 
-# Запишем в файл a1.txt структуру данных - список
-l = [-12, 4, 26, -37, -57, 286, 9, 83]
+#Создание второго файла.
 f1 = open('a1.txt', 'w')
 f1.writelines(f"Исходные данные: {l}\n")
 f1.writelines(f"Количество элементов: {len(l)}\n")
