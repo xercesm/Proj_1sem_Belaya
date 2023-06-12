@@ -2,31 +2,23 @@
 #количество знаков препинания. Сформировать новый файл, в который поместить текст в
 #стихотворной форме выведя строки в обратном порядке.
 
-t = 0
-d = 0
-q = 1
-L = []
-D = []
-for i in open('text18-2.txt', encoding='UTF-8'):
-    print(i, end='')
-    t += 1
-    for j in i:
-        if j in ",.!?;:—….....":
-            d += 1
-print(end='\n')
-print('Количество строк: ', t, end='\n')
-print('Количество знаков препинаний : ', d, end='\n')
+import string
 
-f1 = open('text18-2.txt', encoding="UTF-8")
-for x in f1:
-    L.append(x)
-f2 = open('text18-3.txt', 'w', encoding="UTF-8")
-for x in L:
-    D.append(L[-q])
-    q -=1
+file = open('text18-2.txt', 'r', encoding='UTF-8')
 
-for x in D:
-    f2.writelines(x)
-f1.close()
-f2.close()
+data = file.read()
+print(data)
+print(f'Знаки препинания: {[i for i in data if i in string.punctuation]}')
 
+file.close()
+
+file = open('text18-2.txt', 'r', encoding='UTF-8')
+
+lines = file.readlines()
+
+file.close()
+file = open('text-naoborot.txt', 'w', encoding='UTF-8')
+
+file.writelines(lines[::-1])
+
+file.close()

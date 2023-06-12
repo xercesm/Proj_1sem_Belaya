@@ -1,38 +1,39 @@
-# Средствами языка Python сформировать текстовый файл (.txt) содержащий
-# последовательность из целых положительных и отрицательных чисел.
-# Сформировать новый текстовый файл (.txt) следующего вида,
-# предварительно выполнив требуемую обработку элементов:
-# Исходные данные:
-# Количество элементов:
-# Максимальный элемент:
-# Произведение элементов меньших 0 в первой половине:
+#Средствами языка Python сформировать текстовый файл (.txt), содержащий
+#последовательность из целых положительных и отрицательных чисел. Сформировать
+#новый текстовый файл (.txt) следующего вида, предварительно выполнив требуемую
+#обработку элементов:
+#Исходные данные:
+#Количество элементов:
+#Максимальный элемент:
+#Произведение элементов меньших 0 в первой половине:
+
+
 import random
 
-#Создание первого файла.
-l = [random.randint(-20, 20) for i in range(random.randint(5, 12))]
-pol_l = [i for i in l if i > 0]
-otr_l = [i for i in l if i < 0]
-f1 = open("text1.txt", 'w', encoding='UTF-8')
-f1.write(f"Положительные числа: {pol_l}\n")
-f1.write(f"Отрицательные числа: {otr_l}\n")
-f1.close()
+file = open('file.txt', 'w', encoding='UTF-8')
 
-#Создание второго файла.
-f1 = open('a1.txt', 'w')
-f1.writelines(f"Исходные данные: {l}\n")
-f1.writelines(f"Количество элементов: {len(l)}\n")
-f1.writelines(f"Максимальный элемент: {max(l)}\n")
+file.write(' '.join([str(random.randint(-20, 20)) for _ in range(20)]))
 
-score = 0
-for i in range((len(l) // 2) + 1):
-    for n in range((len(l) // 2)+1):
-        if l[i] * l[n] < 0:
-            score += 1
-f1.writelines(f"Элементы произведение которых меньше 0: {score}")
-f1.close()
+file.close()
 
+file = open('file.txt', 'r', encoding='UTF-8')
 
+raw_data = file.read().split(' ')
+data = [int(i) for i in raw_data]
 
+composion = 1
 
+for num in data[:int(len(data)/2)]:
+    if num < 0:
+        composion *= num
 
+file.close()
 
+file = open('file.txt', 'w', encoding='UTF-8')
+
+file.write(f'Исходные данные:  {raw_data}\n')
+file.write(f'Количество элементов: {len(raw_data)}\n')
+file.write(f'Максимальный элемент: {max(data)}\n')
+file.write(f'Произведение элементов, меньших 0 в первой половине: {composion}')
+
+file.close()
