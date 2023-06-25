@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Форма для опроса</title>
+</head>
+<body>
+ <form id="surveyForm">
+  <label for="name">Введите ваше имя:</label>
+  <input type="text" id="name" name="name" required><br><br>
+
+  <label for="icecream">Что вам больше нравится: мороженое?</label>
+  <input type="radio" id="icecream" name="choice" value="мороженое">
+  <label for="chocolate">или шоколад?</label>
+  <input type="radio" id="chocolate" name="choice" value="шоколад"><br><br>
+
+  <button type="button" onclick="showMessage()">Отправить</button>
+ </form>
+
+ <script>
+  function showMessage() {
+   var name = document.getElementById("name").value;
+   alert("Внимательно вводите свое имя, " + name + "!");
+
+   var choice = document.querySelector('input[name="choice"]:checked').value;
+   alert("Вы выбрали " + choice + ".");
+
+   alert("Спасибо, что приняли участие в нашем опросе!");
+  }
+ </script>
+</body>
+</html>

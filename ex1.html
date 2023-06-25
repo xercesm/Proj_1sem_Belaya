@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Форма aform</title>
+</head>
+<body>
+ <form id="aform">
+  <label for="shape">Геометрическая фигура:</label>
+  <input type="text" id="shape" name="shape"><br><br>
+
+  <label for="color">Цвет:</label>
+  <input type="text" id="color" name="color"><br><br>
+
+  <button type="button" onclick="showMessage()">Отправить</button>
+ </form>
+
+ <script>
+  function showMessage() {
+   var shape = document.getElementById("shape").value;
+   var color = document.getElementById("color").value;
+   var message = "Мне нравится " + color + ' ' + shape ;
+   alert(message);
+
+   var length = shape.length;
+   alert("Длина фигуры: " + length);
+  }
+ </script>
+</body>
+</html>
